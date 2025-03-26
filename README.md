@@ -1,6 +1,6 @@
 # Description
 
-Get ready to meet your new best friend with this dog adoption app. It includes various dogs from a shelter database waiting to find their new best friend too! You can access the app [here](https://dog-adoption-app-opal.vercel.app/)
+Get ready to meet your new best friend with this dog adoption app. It includes various dogs from a shelter database waiting to find their new best friend too! You can access the app [here](https://lilirdz.github.io/dog-adoption-app/)
 
 ## Run Locally
 

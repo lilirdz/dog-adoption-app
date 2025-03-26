@@ -11,6 +11,10 @@ const MatchDog = ({favoriteDogs}: MatchDogProps) => {
   const [matchedDog, setMatchedDog] = useState<Dog | null>(null);
 
   const handleOpen = async () => {
+    if(favoriteDogs.length === 0) {
+      setOpen(true);
+      return;
+    }
     try {
       const matchResult = await api.postDogMatch(favoriteDogs);
       const [matchedDogDetails] = await api.getDogs([matchResult.match]);
@@ -40,7 +44,10 @@ const MatchDog = ({favoriteDogs}: MatchDogProps) => {
         >
         <Box sx={{display: 'flex', flexDirection: 'column', gap: 4, alignItems: 'center'}}>
           {favoriteDogs.length === 0 && (
-            <Typography id="modal-modal-description" sx={{color: '##335368'}}>You need to favorite some dogs first!</Typography>
+            <Box sx={{display: 'flex', flexDirection: 'column', gap: 4, alignItems: 'center'}}>
+            <Typography variant="h4" id="modal-modal-description" sx={{color: '#335368', textAlign: 'center'}}>You need to favorite some dogs first!</Typography>
+            <Button sx={{backgroundColor: '#33a7c0', color: 'white'}} onClick={() => handleClose()}>Close</Button>
+            </Box>
           )}
           {matchedDog && (
             <>
